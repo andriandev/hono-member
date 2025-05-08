@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DB_URL")
+}
+
+model User {
+  id         Int      @id
+  premium    Int      @default(0)
+  token      String   @db.VarChar(400)
+  created_at DateTime @default(now())
+
+  @@map("tb_users")
+}
