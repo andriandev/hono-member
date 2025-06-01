@@ -16,6 +16,7 @@ export async function Login(c: Context) {
       'x-real-ip-from-app':
         c.req.header('x-real-ip') || c.req.header('x-forwarded-for') || '',
       'user-agent': c.req.header('user-agent') || '',
+      referer: c.req.header('Referer') || '',
     },
     method: 'POST',
     body: JSON.stringify({
